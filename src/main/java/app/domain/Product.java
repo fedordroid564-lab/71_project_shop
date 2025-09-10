@@ -11,9 +11,9 @@ public class Product {
     public Product() {
     }
 
-    public Product(String title, int id, double price, boolean active) {
-        this.title = title;
+    public Product(int id, String title, double price, boolean active) {
         this.id = id;
+        this.title = title;
         this.price = price;
         this.active = active;
     }
@@ -34,20 +34,20 @@ public class Product {
         this.title = title;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
     public double getPrice() {
         return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     @Override
@@ -61,6 +61,7 @@ public class Product {
     public int hashCode() {
         return Objects.hash(id, title, price, active);
     }
+
     @Override
     public String toString() {
         return String.format("Продукт: id - %d, наименование - %s, цена - %.2f, активен - %b.",
