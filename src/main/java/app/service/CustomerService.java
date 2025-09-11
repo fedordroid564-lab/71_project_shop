@@ -2,10 +2,7 @@ package app.service;
 
 import app.domain.Customer;
 import app.domain.Product;
-import app.exceptions.CustomerNotFoundException;
-import app.exceptions.CustomerSaveException;
-import app.exceptions.CustomerUpdateException;
-import app.exceptions.ProductNotFoundException;
+import app.exceptions.*;
 import app.repository.CustomerRepository;
 
 import java.io.IOException;
@@ -76,14 +73,12 @@ public class CustomerService {
     }
 
     //    Удалить покупателя из базы данных по его имени.
-//    Удалить покупателя из базы данных по его имени.
     public void deleteByName(String name) throws IOException {
         getAllActiveCustomers()
                 .stream()
                 .filter(x -> x.getName().equals(name))
                 .forEach(x -> x.setActive(false));
     }
-
 
     //    Восстановить удалённого покупателя в базе данных по его идентификатору.
     public void restoreById(int id) throws IOException, CustomerNotFoundException {
@@ -96,8 +91,7 @@ public class CustomerService {
         }
     }
 
-//    Вернуть общее количество покупателей в базе данных (активных).
-
+    //    Вернуть общее количество покупателей в базе данных (активных).
     public int getActiveCustomerCount() throws IOException {
         return getAllActiveCustomers().size();
     }
@@ -112,9 +106,7 @@ public class CustomerService {
                 .sum();
     }
 
-
     //    Вернуть среднюю стоимость продукта в корзине покупателя по его идентификатору (если он активен)
-//    Вернуть среднюю стоимость продукта в корзине покупателя по его идентификатору (если он активен)
     public double getCustomerCartAveragePrice(int id) throws IOException, CustomerNotFoundException {
         return getActiveCustomerById(id)
                 .getProducts()
@@ -144,6 +136,3 @@ public class CustomerService {
         getActiveCustomerById(id).getProducts().clear();
     }
 }
-
-
-
