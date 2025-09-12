@@ -7,7 +7,12 @@
   "id" : 2,
   "name" : "Петя",
   "active" : true,
-  "products" : [ ]
+  "products" : [ {
+    "id" : 3,
+    "title" : "Апельсин",
+    "price" : 105.0,
+    "active" : true
+  } ]
 }, {
   "id" : 3,
   "name" : "Вова",
@@ -70,6 +75,71 @@
   "products" : [ ]
 }, {
   "id" : 15,
+  "name" : "Вова",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 16,
+  "name" : "Маша",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 17,
+  "name" : "Петя",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 18,
+  "name" : "Вова",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 19,
+  "name" : "Маша",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 20,
+  "name" : "Петя",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 21,
+  "name" : "Вова",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 22,
+  "name" : "Маша",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 23,
+  "name" : "Петя",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 24,
+  "name" : "Владимер",
+  "active" : false,
+  "products" : [ ]
+}, {
+  "id" : 25,
+  "name" : "Алла",
+  "active" : false,
+  "products" : [ ]
+}, {
+  "id" : 26,
+  "name" : "Маша",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 27,
+  "name" : "Петя",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 28,
   "name" : "Вова",
   "active" : true,
   "products" : [ ]

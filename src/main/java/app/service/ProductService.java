@@ -71,6 +71,7 @@ public class ProductService {
         if (product.getPrice() <= 0) {
             throw new ProductUpdateException("Цена продукта должна быть положительной");
         }
+        product.setActive(true);
 
         repository.update(product);
     }
@@ -78,15 +79,24 @@ public class ProductService {
     //   Удалить продукт из базы данных по его идентификатору.
 //   По требованиям должно происходить soft удаление - изменение статуса активности продукта
     public void deleteById(int id) throws IOException, ProductNotFoundException {
-        getActiveProductById(id).setActive(false);
+        Product product = getActiveProductById(id);
+        product.setActive(false);
+        repository.update(product);
     }
 
     //   Удалить продукт из базы данных по его наименованию.
-    public void deleteByTitle(String title) throws IOException {
-        getAllActiveProducts()
+    public void deleteByTitle(String title) throws IOException, ProductNotFoundException {
+
+        Product product = getAllActiveProducts()
                 .stream()
                 .filter(x -> x.getTitle().equals(title))
-                .forEach(x -> x.setActive(false));
+                .peek(x -> x.setActive(false))
+                .findFirst()
+                .orElseThrow(
+                        () -> new ProductNotFoundException(title)
+                );
+        repository.update(product);
+
     }
 
     //   Восстановить удалённый продукт в базе данных по его идентификатору.
@@ -95,6 +105,7 @@ public class ProductService {
 
         if (product != null) {
             product.setActive(true);
+            repository.update(product);
         } else {
             throw new ProductNotFoundException(id);
         }
